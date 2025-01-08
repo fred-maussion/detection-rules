@@ -1,0 +1,2 @@
+- test - Custom schema must be a file: /Users/fmaussion/GitClone/Elastic/detection-rules/dac_custom_rules_dir/etc/schemas/auto_gen.json
+- Accepted Default Telnet Port Connection - Custom schema must be a file: /Users/fmaussion/GitClone/Elastic/detection-rules/dac_custom_rules_dir/etc/schemas/auto_gen.json
