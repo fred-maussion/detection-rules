@@ -65,7 +65,7 @@ jobs:
                 SPACE="${{ inputs.space }}"  # Use provided space if valid
             else
                 echo "::error::Invalid space provided. Defaulting to 'dev'."
-                SPACE="dev"
+                SPACE="${{ inputs.space }}"
             fi
             SPACE_FLAG="--space $SPACE"
             python -m detection_rules kibana $SPACE_FLAG import-rules $FLAGS
