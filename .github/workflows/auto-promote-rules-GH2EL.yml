@@ -65,8 +65,8 @@ jobs:
             elif [[ "${{ inputs.space }}" == "dev" || "${{ inputs.space }}" == "prod" ]]; then
                 SPACE="${{ inputs.space }}"  # Use provided space if valid
             else
-                echo "::error::Invalid space provided. Defaulting to 'dev'."
-                SPACE="${{ inputs.space }}"
+                echo "::error::Invalid space provided. Defaulting to 'SPACE' Variable."
+                SPACE="${{ SPACE }}"
             fi
             SPACE_FLAG="--space $SPACE"
             python -m detection_rules kibana $SPACE_FLAG import-rules $FLAGS
