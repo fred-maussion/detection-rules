@@ -10,7 +10,7 @@ on:
       space:
         description: 'Specify the Kibana space to export rules from'
         required: false
-        default: 'dev'
+        default: 'default'
 
 jobs:
   manual-dispatch-sync:
