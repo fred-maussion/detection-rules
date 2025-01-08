@@ -1,0 +1,6 @@
+---
+8.18.0:
+  beats: 8.17.0
+  e3c0548d-9651-48d4-96ec-b5eb0f281cd2: /Users/fmaussion/GitClone/Elastic/detection-rules/dac_custom_rules_dir/etc/schemas/auto_gen.json
+  ecs: 8.16.0
+  endgame: 8.4.0
