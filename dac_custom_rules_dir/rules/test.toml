@@ -1,0 +1,70 @@
+[metadata]
+creation_date = "2025/01/08"
+integration = []
+maturity = "production"
+updated_date = "2025/01/08"
+
+[rule]
+actions = []
+author = ["3727848238"]
+description = "test"
+enabled = true
+exceptions_list = []
+false_positives = []
+from = "now-360s"
+index = [
+    "apm-*-transaction*",
+    "auditbeat-*",
+    "endgame-*",
+    "filebeat-*",
+    "logs-*",
+    "packetbeat-*",
+    "traces-apm*",
+    "winlogbeat-*",
+    "-*elastic-cloud-logs-*",
+]
+interval = "10m"
+language = "eql"
+license = ""
+max_signals = 100
+name = "test"
+references = []
+related_integrations = []
+required_fields = []
+risk_score = 21
+risk_score_mapping = []
+rule_id = "1a932151-9604-4835-a510-8cd99542c5f0"
+setup = ""
+severity = "low"
+severity_mapping = []
+tags = []
+threat = []
+to = "now"
+type = "eql"
+
+query = '''
+sequence by user.name
+  [ authentication where event.outcome == "failure" ]
+  [ authentication where event.outcome == "success" ]
+'''
+
+
+[[rule.filters]]
+
+[rule.filters."$state"]
+store = "appState"
+[rule.filters.meta]
+disabled = false
+field = "agent.name"
+key = "agent.name"
+negate = false
+type = "phrase"
+[rule.filters.meta.params]
+query = "epr"
+[rule.filters.query.match_phrase]
+"agent.name" = "epr"
+
+[rule.meta]
+from = "1m"
+kibana_siem_app_url = "https://fmaussion-customer-test.kb.europe-west3.gcp.cloud.es.io:9243/app/security"
+
