@@ -49,7 +49,7 @@ jobs:
 
         - name: Import Rules to Kibana
           run: |
-            FLAGS=""
+            FLAGS="-d ${{ env.CUSTOM_RULES_DIR }}/rules/ --overwrite -e -ac"
             if [[ "${{ github.event_name }}" == "push" || "${{ inputs.overwrite }}" == "true" ]]; then
                 FLAGS="$FLAGS --overwrite"
             fi
