@@ -1,0 +1,58 @@
+[metadata]
+creation_date = "2025/01/27"
+integration = []
+maturity = "production"
+updated_date = "2025/01/27"
+
+[rule]
+actions = []
+author = ["3727848238"]
+description = "test for sa"
+enabled = false
+exceptions_list = []
+false_positives = []
+filters = []
+from = "now-360s"
+index = [
+    "apm-*-transaction*",
+    "auditbeat-*",
+    "endgame-*",
+    "filebeat-*",
+    "logs-*",
+    "packetbeat-*",
+    "traces-apm*",
+    "winlogbeat-*",
+    "-*elastic-cloud-logs-*",
+]
+interval = "5m"
+language = "eql"
+license = ""
+max_signals = 100
+name = "test for sa"
+references = []
+related_integrations = []
+required_fields = []
+risk_score = 21
+risk_score_mapping = []
+rule_id = "1dcaddde-b0c7-4b6e-ae52-734a35dcb895"
+setup = ""
+severity = "low"
+severity_mapping = []
+tags = []
+threat = []
+to = "now"
+type = "eql"
+
+query = '''
+sequence by user.name
+          [authentication where event.action == "login-success"]
+          [authentication where event.action == "login-failed"]
+          until [authentication where event.action == "account-locked"]
+'''
+
+
+
+[rule.meta]
+from = "1m"
+kibana_siem_app_url = "https://fmaussion-customer-test.kb.europe-west3.gcp.cloud.es.io/app/security"
+
