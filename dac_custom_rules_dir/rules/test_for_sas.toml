@@ -7,8 +7,8 @@ updated_date = "2025/01/27"
 [rule]
 actions = []
 author = ["3727848238"]
-description = "TEst 1"
-enabled = true
+description = "What a great rule"
+enabled = false
 exceptions_list = []
 false_positives = []
 filters = []
@@ -28,13 +28,13 @@ interval = "5m"
 language = "eql"
 license = ""
 max_signals = 100
-name = "Test 1"
+name = "Test for SAs"
 references = []
 related_integrations = []
 required_fields = []
 risk_score = 21
 risk_score_mapping = []
-rule_id = "447581ae-9eeb-4752-9a07-683e07ad4ea4"
+rule_id = "9bdcd862-19ad-4727-91d5-d40bcbbc0ebb"
 setup = ""
 severity = "low"
 severity_mapping = []
@@ -45,8 +45,9 @@ type = "eql"
 
 query = '''
 sequence by user.name
-      [ authentication where event.outcome == "failure" ]
-      [ authentication where event.outcome == "success" ]
+      [authentication where event.action == "login-failed"]
+      [authentication where event.action == "login-success"]
+      until [authentication where event.action == "account-locked"]
 '''
 
 
