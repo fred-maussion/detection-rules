@@ -1,14 +1,14 @@
 [metadata]
-creation_date = "2025/01/27"
+creation_date = "2025/01/28"
 integration = []
 maturity = "production"
-updated_date = "2025/01/27"
+updated_date = "2025/01/28"
 
 [rule]
 actions = []
 author = ["3727848238"]
 description = "TEst 1"
-enabled = true
+enabled = false
 exceptions_list = []
 false_positives = []
 filters = []
